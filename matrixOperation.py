@@ -37,23 +37,7 @@ def matrixCreate(m, n, id = int(0), rand = False, randlist = [int(0),int(1)]):
         for i in range(n):
             n_list.append(id)
         for i in range(m):
-            matrix.append(n_list)
-    return matrix
-
-def boat():
-    listzero = []
-    for i in range(50):
-        listzero.append(int(0))
-    listt = []
-    matrix = []
-    for i in range(46):
-        listt.append(int(0))
-    matrix.append(listzero)
-    matrix.append([int(0),int(0),int(0),int(1)] + listt)
-    matrix.append([int(0),int(1),int(0),int(1)] + listt)
-    matrix.append([int(0),int(0),int(1),int(1)] + listt)
-    for i in range(23):
-        matrix.append(listzero)
+            matrix.append(list(n_list))
     return matrix
 
 def combinMat(mat_1, mat_2, m = 0, n = 0):
@@ -68,3 +52,12 @@ def combinMat(mat_1, mat_2, m = 0, n = 0):
         for n_i in range(len(mat_2[0])):
             mymat_1[m_i + m][n_i + n] = mat_2[m_i][n_i]
     return mymat_1
+
+def partSelect(matrix, ma, na, mb, nb):
+    new_mat = []
+    for m in range(abs(mb - ma)):
+        new_list = []
+        for n in range(abs(nb - na)):
+            new_list.append(matrix[m + ma][n + na])
+        new_mat.append(new_list)
+    return new_mat
